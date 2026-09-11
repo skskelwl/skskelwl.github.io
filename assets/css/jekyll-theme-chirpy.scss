@@ -1,0 +1,77 @@
+---
+---
+
+@use 'abstracts/variables' with (
+  $theme: '{{ site.theme_mode }}'
+);
+
+/* prettier-ignore */
+@use 'main
+{%- if jekyll.environment == 'production' -%}
+  .bundle
+{%- endif -%}
+';
+
+/* Soft, low-glare palette for comfortable reading. */
+@mixin soft-light-palette {
+  --main-bg: #f7f5ef;
+  --main-border-color: #e3e0d7;
+  --text-color: #414741;
+  --heading-color: #303630;
+  --card-bg: #fbfaf6;
+  --card-hover-bg: #f0eee7;
+  --sidebar-bg: #eaeee8;
+  --sidebar-border-color: #dfe4dd;
+  --sidebar-hover-bg: rgb(207 220 209 / 65%);
+  --sidebar-btn-bg: #f4f5f0;
+  --topbar-bg: rgb(247 245 239 / 88%);
+  --button-bg: #fbfaf6;
+  --menu-bg: #fbfaf6;
+  --menu-border-color: #e3e0d7;
+  --tb-odd-bg: #f1f0ea;
+  --highlight-bg-color: #efeee8;
+  --inline-code-bg: rgb(67 83 70 / 8%);
+}
+
+@mixin soft-dark-palette {
+  --main-bg: #202724;
+  --main-border-color: #35413b;
+  --text-color: #c4cec7;
+  --text-muted-color: #929f97;
+  --heading-color: #e0e7e2;
+  --card-bg: #252e2a;
+  --card-header-bg: #2a342f;
+  --card-hover-bg: #344139;
+  --sidebar-bg: #1c2421;
+  --sidebar-border-color: #303c36;
+  --sidebar-hover-bg: #2b3832;
+  --sidebar-btn-bg: #27312d;
+  --topbar-bg: rgb(32 39 36 / 88%);
+  --button-bg: #27312d;
+  --menu-bg: #252e2a;
+  --menu-border-color: #3b4942;
+  --tb-odd-bg: #26302b;
+  --tb-even-bg: #222a27;
+  --highlight-bg-color: #19201d;
+  --inline-code-bg: rgb(255 255 255 / 7%);
+}
+
+:root[data-bs-theme='light'] {
+  @include soft-light-palette;
+}
+
+:root[data-bs-theme='dark'] {
+  @include soft-dark-palette;
+}
+
+@media (prefers-color-scheme: light) {
+  :root:not([data-bs-theme]) {
+    @include soft-light-palette;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-bs-theme]) {
+    @include soft-dark-palette;
+  }
+}
