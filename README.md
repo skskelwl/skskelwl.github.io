@@ -38,6 +38,15 @@ tags: [태그]
 
 설정 파일을 바꾼 뒤에는 로컬 서버를 다시 시작해야 변경 내용이 정확히 반영됩니다.
 
+## 사진과 동영상
+
+- 사진은 `assets/img/posts`에 넣고 `![설명](/assets/img/posts/파일명.jpg)`로 삽입합니다.
+- MP4 동영상은 `assets/video`에 넣고 Chirpy의 `embed/video.html` 기능으로 삽입합니다.
+- YouTube 영상은 영상 ID를 `embed/youtube.html`에 지정합니다.
+- 바로 복사해서 사용할 수 있는 전체 예시는 `_drafts/post-template.md`에 있습니다.
+
+새 글을 공개하려면 템플릿을 복사해 `_posts/YYYY-MM-DD-title.md` 이름으로 저장한 뒤 커밋하고 푸시합니다.
+
 ## 배포
 
 `main` 브랜치에 푸시하면 GitHub Actions가 사이트를 빌드하고 GitHub Pages에 배포합니다.
